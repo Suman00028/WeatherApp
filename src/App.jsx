@@ -19,7 +19,6 @@ function App() {
       console.log('An error happened', error);
     }
 
-    setSearchQuery('');
   }
 
   return (
