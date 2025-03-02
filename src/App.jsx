@@ -23,14 +23,13 @@ function App() {
   }
 
   return (
-    <div className="w-full h-[100vh] flex justify-center items-center text-white">
-
-      <div className="w-auto bg-blue-300 h-auto p-20 text-2xl rounded-lg">
+    <div className="w-full min-h-screen flex justify-center items-center text-white p-4">
+      <div className="w-full max-w-[90%] md:max-w-[500px] bg-blue-300 h-auto p-6 md:p-10 text-lg md:text-2xl rounded-lg">
 
         {/* Input section */}
-        <div className="w-full flex justify-center">
+        <div className="w-full flex flex-col md:flex-row justify-center items-center">
           <input
-            className="border-2 border-gray-700 focus:outline-none focus:scale-105 transition-transform duration-200 text-black rounded-md p-2 mr-3"
+            className="border-2 border-gray-700 focus:outline-none focus:scale-105 transition-transform duration-200 text-black rounded-md p-2 mb-3 md:mb-0 md:mr-3 w-full md:w-auto"
             type="text"
             placeholder="Search location"
             value={searchQuery}
@@ -53,29 +52,32 @@ function App() {
         <div className="flex flex-col h-full justify-baseline gap-5 mt-7">
           {weatherData && (
             <div className="flex flex-col gap-5 items-center">
-              <h1 className="text-5xl ">{weatherData.location?.country}</h1>
+              <h1 className="text-3xl md:text-5xl">{weatherData.location?.country}</h1>
 
-              {/* Weather condtion */}
-              <div className="w-36 h-36 text-center mb-10">
+              {/* Weather condition */}
+              <div className="w-24 h-24 md:w-36 md:h-36 text-center mb-6 md:mb-10">
                 {weatherData.current?.condition.icon && (
                   <>
-                    <img className="w-40" src={weatherData.current?.condition.icon} />
-                    <h1 className="text-4xl text-white">{weatherData.current?.condition.text}</h1>
+                    <img className="w-32 md:w-40" src={weatherData.current?.condition.icon} />
+                    <h1 className="text-2xl md:text-4xl text-white">{weatherData.current?.condition.text}</h1>
                   </>
                 )}
               </div>
 
               {/* Weather information */}
-              <div className="mt-10">
-                <h1 className="text-3xl text-black">Temperature: <span className="text-red-700 font-bold">{weatherData.current?.temp_c
-                }°C</span></h1>
-                <h1 className="text-3xl text-black">Humidity: <span className="text-red-700 font-bold">{weatherData.current?.humidity}%</span></h1>
-                <h1 className="text-3xl text-black">Wind Speed: <span className="text-red-700 font-bold">{weatherData.current?.wind_kph
-                } km/h</span></h1>
+              <div className="mt-6 md:mt-10 text-center">
+                <h1 className="text-xl md:text-3xl text-black">
+                  Temperature: <span className="text-red-700 font-bold">{weatherData.current?.temp_c}°C</span>
+                </h1>
+                <h1 className="text-xl md:text-3xl text-black">
+                  Humidity: <span className="text-red-700 font-bold">{weatherData.current?.humidity}%</span>
+                </h1>
+                <h1 className="text-xl md:text-3xl text-black">
+                  Wind Speed: <span className="text-red-700 font-bold">{weatherData.current?.wind_kph} km/h</span>
+                </h1>
               </div>
             </div>
-          )
-          }
+          )}
         </div>
 
       </div>
